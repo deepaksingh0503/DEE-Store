@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0px;
+}
+
+
+/* -------------------------Header code here------------------- */
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container img{
+    width: 100px;
+    margin-right: 40px;
+    align-items: center;
+    height: 100px;
+    justify-items: center;
+}
+
+.container h1{
+    font-style:italic;
+    font-size: 3rem;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+/* ------------------------Main Body CSS-------------------- */
+a{
+    list-style: none;
+    text-decoration: none;
+}
+.mainSub{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 250px;
+    margin-left: 20px;
+    align-items: center;
+    
+    justify-content: center;
+    margin-right: 20px;
+    border-radius: 20px;
+    margin-top: 30px;
+    padding: 10px;
+    
+}
+#mainSubImg{
+    margin: 10px;
+    height: 100px;
+}
+
+.mainSub h4{
+    margin-left: -110px;
+    margin-top: 5px;
+    font-size: 20px;
+    color: black;
+}
+.mainSub h5{
+    margin-left: -170px;
+    font-size: 20px;
+    color: black;
+    margin-top: 5px;
+}
+
+#heading{
+    margin-left: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 30px;
+}

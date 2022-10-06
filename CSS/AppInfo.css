@@ -1,0 +1,147 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.container img{
+width: 100px;
+margin-right: 40px;
+align-items: center;
+height: 100px;
+justify-items: center;
+}
+
+.container h1{
+font-style:italic;
+font-size: 3rem;
+}
+
+#main{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+.installComplete{
+display: flex;
+direction: row;
+justify-content: space-between;
+margin-top: 40px;
+}
+.installComplete img{
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+border-radius: 30px;
+padding: 10px;
+margin-right: 50px;
+}
+.install_left{
+margin-left: 50px;
+}
+.install_left h1{
+font-size: 60px;
+font-family:Arial, Helvetica, sans-serif;
+}
+.install_left h3{
+font-size: 20px;
+margin: 5px;
+}
+.install_left button{
+/* padding: 30px; */
+background-color: #01875f;
+width: 200px;
+font-size: 20px;
+margin-top: 20px;
+color: white;
+height: 45px;
+border: 0px solid black;
+border-radius: 15px;
+}
+
+.about_page h3{
+font-size: 30px;
+margin-left: 40px;
+}
+.about_page p{
+margin: 40px;
+}
+
+
+
+
+.mainSub{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 250px;
+    margin-left: 20px;
+    align-items: center;
+   
+    justify-content: center;
+   
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-right: 50px;
+    padding: 10px;
+    
+}
+#mainSubImg{
+    margin: 10px;
+    height: 100px;
+}
+
+.mainSub h4{
+    margin-left: -110px;
+    margin-top: 5px;
+    font-size: 20px;
+    color: black;
+}
+.mainSub h5{
+    margin-left: -170px;
+    font-size: 20px;
+    color: black;
+    margin-top: 5px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .install_left h1{
+        font-size: 30px;
+    }
+    .container h1{
+font-size: 40px;
+    }
+    .mainSub h4{
+            /* display: none; */
+            margin-right: -100px;
+    }
+    .mainSub h5{
+        margin-right: -100px;
+    }
+    .about_page p{
+        margin: 5px;
+        text-align: center;
+    }
+    .about_page{
+        margin-top: 50px;
+        text-align: center;
+    }
+    #mainSubImg {
+        margin-top: -50px;
+        height: 70px;
+    }
+    .install_left{
+        margin-left: 10px;
+    }
+    .install_left button {
+        width: 150px;
+        height: 35px;
+    }
+    .mainSub{
+        width: 200px;
+    }
+  }
