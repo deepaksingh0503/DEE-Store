@@ -1,0 +1,412 @@
+welcome back
+
+last time we introduced neural networks
+
+and showed how you could use them to
+
+approximate any function
+
+now we'll apply them to model language
+
+which involves fitting this type of
+
+function
+
+given some text like this we'd like to
+
+predict the last word
+
+we'll use some kind of neural network
+
+we first need to turn our words into
+
+numbers so the neural network can
+
+understand them
+
+you could just number every word
+
+alphabetically but then synonyms like
+
+apex and zenith would have very
+
+different numbers
+
+it's better to map semantically similar
+
+words like this to numbers or vectors in
+
+this case that are similar
+
+methods that do this are called word
+
+embeddings and they're readily available
+
+online okay now we're ready to design
+
+our big language neural network
+
+perhaps something like this
+
+and you can add even more layers neurons
+
+and weights to increase capacity but
+
+still not going to work very well
+
+the problem is just too hard we need to
+
+give the network a bit more help
+
+let's go back to our favorite example
+
+suppose i left out the last word could
+
+you guess it i bet you could
+
+in fact i bet you could do it with only
+
+these four words
+
+a kind of hair that rhymes with bed
+
+this is a key insight you just need to
+
+pay attention to a subset of the words
+
+what if we could train a neural network
+
+to solve this attention problem
+
+we'll do this with an attention network
+
+that takes the input words and outputs
+
+attention weights between zero and one
+
+we'll multiply these weights by the
+
+words themselves and feed the results
+
+into the next word predictor network
+
+so how do you train the attention
+
+network
+
+well you could hire people to annotate
+
+rhymes and other word associations in
+
+lots and lots of text
+
+and use this as training data
+
+but that sounds like a pain and it turns
+
+out there's a much better way
+
+let's train both of these networks
+
+together
+
+here the prediction network is telling
+
+the attention network what it needs to
+
+learn so it can predict next words
+
+better
+
+for example say the network predicts
+
+brown instead of red brown doesn't rhyme
+
+with bed so the back propagation
+
+algorithm might try to increase the
+
+attention on bed
+
+and decrease weights that led to the
+
+selection of brown
+
+this works really well and this combined
+
+network is called a transformer
+
+and while the full architecture is
+
+pretty complex i'll take you through the
+
+basics
+
+the implementation of the attention
+
+network varies a bit from what i just
+
+described it operates one word at a time
+
+let's start with the word still the
+
+network estimates how much every other
+
+word relates to still and encodes these
+
+attention scores between 0 and 1.
+
+we'll then take a weighted sum of these
+
+words and encode it as a context vector
+
+c
+
+the other words are processed in the
+
+same way
+
+for example the word changed has a
+
+different pattern of dependencies
+
+resulting in its own context vector
+
+in the end the attention network
+
+generates a context vector for every
+
+word
+
+then these context vectors are fed into
+
+the prediction network along with the
+
+original words
+
+so how do we use this to generate text
+
+let's choose a word to start our
+
+sentence
+
+it's and feed it through the network
+
+it predicts a as the next word
+
+actually you'll get multiple suggestions
+
+with different probabilities and you can
+
+randomly choose one of the best
+
+but suppose we chose a we'll now add the
+
+word a as our next input and feed that
+
+through the network to generate the
+
+third word lot
+
+and so on
+
+okay
+
+let's try a harder one
+
+the 16th president was abraham lincoln
+
+so the next word should be abraham
+
+but wait a minute we've just been
+
+talking about word attention patterns
+
+how's the network going to know about
+
+presidents
+
+and if we can answer questions like this
+
+then it needs to memorize all possible
+
+facts
+
+that's a pretty tall order
+
+to do that we're going to have to give
+
+our network a lot more capacity
+
+we can do this by stacking many of these
+
+prediction attention layers
+
+how many
+
+well gpt 3 has 96 of these
+
+gpt 3 is a popular model from openai
+
+and the palm model from google has a
+
+similar number
+
+these models have hundreds of billions
+
+of parameters
+
+that's enough capacity to do some really
+
+impressive things
+
+stacking these attention models allows
+
+for higher level reasoning whereas the
+
+lower layers focus on word relationships
+
+and syntax the higher layers can encode
+
+more complex relationships that encode
+
+semantics
+
+all right we're ready to train our
+
+network
+
+we'll need some text to train on how
+
+much
+
+well basically all of it
+
+today's large language models have read
+
+most of the internet and publicly
+
+available books
+
+that's half a trillion words
+
+you're probably guessing that it takes a
+
+long time to train large language models
+
+that's true
+
+training gpt3 would take 355 years on a
+
+single gpu or computer
+
+but transformers are designed to be
+
+highly parallelizable so you can do in
+
+about a month with a few thousand gpus
+
+let's start with q a in each case i
+
+specified the blue text as input it got
+
+most of these facts right
+
+it had a hard time factoring this
+
+extremely large number
+
+and the per capita income figure was a
+
+bit off
+
+it's pretty good at writing poems here's
+
+the prompt i gave
+
+and here's gpt 3's results
+
+i kind of love this one even though it's
+
+technically not quite a haiku
+
+you can ask it to translate languages
+
+i don't know how many of these are
+
+correct but they look pretty close
+
+these language models aren't perfect
+
+they often struggle with basic
+
+arithmetic and spatial relationships
+
+they can also suffer from bias and
+
+stereotyping so there's still a lot of
+
+important research left to do in this
+
+area
+
+but if you need cooking ideas large
+
+language models can help
+
+here i asked gpt3 to create a new recipe
+
+something that probably doesn't already
+
+exist on the internet
+
+i like that it shows two different types
+
+of chocolate cocoa powder and chocolate
+
+chips which are incorporated in
+
+different ways into the recipe
+
+and it knew that guacamole is made from
+
+avocados
+
+and remember this neural network that we
+
+trained
+
+well gpt-3 wrote the code
+
+i just described the network i wanted
+
+and the function i wanted to fit in
+
+english and gpt3 generated the program
+
+automatically
+
+the first few times i ran it through
+
+gpt3 the code had one bug but the third
+
+time produced python code that ran
+
+perfectly
+
+mind blowing
+
+and of course we can generate new songs
+
+in the style of tangled up in blue
+
+i recommend pausing this video to read
+
+these lyrics they're pretty good
+
+i hope you've enjoyed this video on
+
+large language models
+
+you
+
